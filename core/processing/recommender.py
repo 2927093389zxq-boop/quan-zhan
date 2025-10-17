@@ -3,6 +3,7 @@ AI 推荐引擎
 基于 OpenAI 生成智能建议
 """
 import os
+import re
 from typing import Optional
 from dotenv import load_dotenv
 
@@ -82,7 +83,6 @@ def generate_product_recommendations(products: list, user_preferences: dict = No
         price_str = p.get('price', '')
         if price_str and isinstance(price_str, str):
             # 尝试提取数字
-            import re
             match = re.search(r'[\d.]+', price_str)
             if match:
                 try:

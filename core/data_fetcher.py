@@ -2,8 +2,11 @@
 Core Data Fetcher Module
 统一数据获取接口，支持多平台数据采集
 """
-import streamlit as st
 from typing import List, Dict, Any, Optional
+import logging
+
+# 配置日志
+logger = logging.getLogger(__name__)
 
 # 支持的平台列表
 PLATFORM_LIST = [
@@ -42,14 +45,31 @@ def get_platform_data(
         elif platform_name == "1688":
             return _fetch_1688_data(keyword, max_items)
         elif platform_name in ["Taobao", "JD.com", "Pinduoduo"]:
-            st.warning(f"{platform_name} 数据源暂未实现，返回示例数据")
+            logger.warning(f"{platform_name} 数据源暂未实现，返回示例数据")
+            _show_message("warning", f"{platform_name} 数据源暂未实现，返回示例数据")
             return _fetch_demo_data(platform_name, max_items)
         else:
-            st.error(f"不支持的平台: {platform_name}")
+            logger.error(f"不支持的平台: {platform_name}")
+            _show_message("error", f"不支持的平台: {platform_name}")
             return []
     except Exception as e:
-        st.error(f"获取 {platform_name} 数据时发生错误: {str(e)}")
+        logger.error(f"获取 {platform_name} 数据时发生错误: {str(e)}")
+        _show_message("error", f"获取 {platform_name} 数据时发生错误: {str(e)}")
         return []
+
+def _show_message(level: str, message: str):
+    """显示消息，如果在 streamlit 环境中则使用 streamlit，否则使用日志"""
+    try:
+        import streamlit as st
+        if level == "error":
+            st.error(message)
+        elif level == "warning":
+            st.warning(message)
+        elif level == "info":
+            st.info(message)
+    except (ImportError, RuntimeError):
+        # 不在 streamlit 环境中，仅使用日志
+        pass
 
 def _fetch_amazon_data(
     keyword: str,
@@ -83,15 +103,18 @@ def _fetch_amazon_data(
         
         return results
     except ImportError:
-        st.error("Amazon 爬虫模块未安装")
+        logger.error("Amazon 爬虫模块未安装")
+        _show_message("error", "Amazon 爬虫模块未安装")
         return []
     except Exception as e:
-        st.error(f"Amazon 数据获取失败: {str(e)}")
+        logger.error(f"Amazon 数据获取失败: {str(e)}")
+        _show_message("error", f"Amazon 数据获取失败: {str(e)}")
         return []
 
 def _fetch_1688_data(keyword: str, max_items: int) -> List[Dict[str, Any]]:
     """从 1688 获取数据（示例实现）"""
-    st.info("1688 数据源使用示例数据")
+    logger.info("1688 数据源使用示例数据")
+    _show_message("info", "1688 数据源使用示例数据")
     return _fetch_demo_data("1688", max_items)
 
 def _fetch_demo_data(platform: str, max_items: int) -> List[Dict[str, Any]]:

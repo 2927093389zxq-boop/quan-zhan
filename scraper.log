@@ -199,3 +199,4 @@ Traceback (most recent call last):
   File "C:\Users\29270\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 503, in _make_subprocess_transport
     raise NotImplementedError
 NotImplementedError
+2025-10-17 04:37:40,033 INFO 1688 数据源使用示例数据

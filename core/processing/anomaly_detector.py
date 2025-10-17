@@ -4,6 +4,10 @@
 """
 from typing import List
 import numpy as np
+import logging
+
+# 配置日志
+logger = logging.getLogger(__name__)
 
 def detect_anomalies(data: List[float], threshold: float = 2.0) -> List[int]:
     """
@@ -40,7 +44,7 @@ def detect_anomalies(data: List[float], threshold: float = 2.0) -> List[int]:
         return anomaly_indices
     
     except Exception as e:
-        print(f"异常检测失败: {e}")
+        logger.error(f"异常检测失败: {e}")
         return []
 
 
@@ -76,7 +80,7 @@ def detect_anomalies_iqr(data: List[float], multiplier: float = 1.5) -> List[int
         return anomaly_indices
     
     except Exception as e:
-        print(f"IQR 异常检测失败: {e}")
+        logger.error(f"IQR 异常检测失败: {e}")
         return []
 
 
@@ -111,5 +115,5 @@ def detect_time_series_anomalies(data: List[float], window_size: int = 3) -> Lis
         return anomalies
     
     except Exception as e:
-        print(f"时间序列异常检测失败: {e}")
+        logger.error(f"时间序列异常检测失败: {e}")
         return []

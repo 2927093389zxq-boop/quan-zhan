@@ -2,17 +2,28 @@
 批量爬取调度器
 用于管理多个URL的批量采集任务
 """
-import streamlit as st
-from typing import List
+from typing import List, Optional, Callable
+import logging
 from scrapers.logger import log_info, log_error
 
-def run_batch(urls: List[str], storage_mode: str = "local", **kwargs):
+# 配置日志
+logger = logging.getLogger(__name__)
+
+def run_batch(
+    urls: List[str], 
+    storage_mode: str = "local",
+    progress_callback: Optional[Callable] = None,
+    status_callback: Optional[Callable] = None,
+    **kwargs
+):
     """
     批量运行爬取任务
     
     参数:
         urls: URL 列表
         storage_mode: 存储模式 (local, mongo, mysql, cloud)
+        progress_callback: 进度回调函数 (可选)
+        status_callback: 状态回调函数 (可选)
         **kwargs: 其他可选参数
     """
     log_info(f"[BATCH] 开始批量任务，共 {len(urls)} 个URL")
@@ -21,12 +32,25 @@ def run_batch(urls: List[str], storage_mode: str = "local", **kwargs):
     success_count = 0
     fail_count = 0
     
-    progress_bar = st.progress(0)
-    status_text = st.empty()
+    # 尝试使用 streamlit 进度条，如果不在 streamlit 环境则忽略
+    progress_bar = None
+    status_text = None
+    try:
+        import streamlit as st
+        progress_bar = st.progress(0)
+        status_text = st.empty()
+    except (ImportError, RuntimeError):
+        # 不在 streamlit 环境中
+        pass
     
     for idx, url in enumerate(urls):
         try:
-            status_text.text(f"正在处理 {idx+1}/{len(urls)}: {url[:50]}...")
+            status_msg = f"正在处理 {idx+1}/{len(urls)}: {url[:50]}..."
+            if status_text:
+                status_text.text(status_msg)
+            if status_callback:
+                status_callback(status_msg)
+            logger.info(status_msg)
             
             # 根据URL类型选择合适的爬虫
             if "amazon" in url.lower():
@@ -55,10 +79,18 @@ def run_batch(urls: List[str], storage_mode: str = "local", **kwargs):
         
         # 更新进度条
         progress = (idx + 1) / len(urls)
-        progress_bar.progress(progress)
+        if progress_bar:
+            progress_bar.progress(progress)
+        if progress_callback:
+            progress_callback(progress)
     
     # 完成
-    status_text.text(f"批量任务完成！成功: {success_count}, 失败: {fail_count}")
+    final_msg = f"批量任务完成！成功: {success_count}, 失败: {fail_count}"
+    if status_text:
+        status_text.text(final_msg)
+    if status_callback:
+        status_callback(final_msg)
+    logger.info(final_msg)
     log_info(f"[BATCH] 批量任务完成，共采集 {len(results)} 条数据")
     
     return results
