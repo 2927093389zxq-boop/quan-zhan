@@ -21,3 +21,4 @@ lxml
 python-dateutil
 plotly
 python-multipart
+playwright
