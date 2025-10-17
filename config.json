@@ -1,0 +1,14 @@
+{
+  "email": {
+    "sender": "2927093389@qq.com",
+    "password": "otmayvpldgvcdccd",
+    "receiver": "2927093389@qq.com",
+    "smtp_server": "otmayvpldgvcdccd",
+    "smtp_port": 465
+  },
+  "report_time": "08:00",
+  "market_sources": ["amazon", "etsy", "tiktok", "youtube"],
+  "confidence_threshold": 0.7,
+  "poll_interval_minutes": 60,
+  "evolution_check_interval_hours": 2
+}

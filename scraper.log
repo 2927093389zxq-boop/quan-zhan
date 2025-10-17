@@ -1,0 +1,201 @@
+2025-10-17 03:00:11,190 INFO [LIST] Using proxy: None
+2025-10-17 03:00:11,197 ERROR [LIST] Error scraping https://www.amazon.com/bestsellers: 
+2025-10-17 03:00:16,261 ERROR Future exception was never retrieved
+future: <Future finished exception=NotImplementedError()>
+Traceback (most recent call last):
+  File "D:\智能体\D京盛传媒智能体_企业版\scrapers\amazon_scraper.py", line 37, in scrape_amazon
+    with sync_playwright() as p:
+  File "C:\Users\29270\AppData\Local\Programs\Python\Python311\Lib\site-packages\playwright\sync_api\_context_manager.py", line 77, in __enter__
+    dispatcher_fiber.switch()
+  File "C:\Users\29270\AppData\Local\Programs\Python\Python311\Lib\site-packages\playwright\sync_api\_context_manager.py", line 56, in greenlet_main
+    self._loop.run_until_complete(self._connection.run_as_sync())
+  File "C:\Users\29270\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\29270\AppData\Local\Programs\Python\Python311\Lib\site-packages\playwright\_impl\_connection.py", line 301, in run_as_sync
+    await self.run()
+  File "C:\Users\29270\AppData\Local\Programs\Python\Python311\Lib\site-packages\playwright\_impl\_connection.py", line 310, in run
+    await self._transport.connect()
+  File "C:\Users\29270\AppData\Local\Programs\Python\Python311\Lib\site-packages\playwright\_impl\_transport.py", line 133, in connect
+    raise exc
+  File "C:\Users\29270\AppData\Local\Programs\Python\Python311\Lib\site-packages\playwright\_impl\_transport.py", line 120, in connect
+    self._proc = await asyncio.create_subprocess_exec(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\29270\AppData\Local\Programs\Python\Python311\Lib\asyncio\subprocess.py", line 223, in create_subprocess_exec
+    transport, protocol = await loop.subprocess_exec(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\29270\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 1708, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\29270\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 503, in _make_subprocess_transport
+    raise NotImplementedError
+NotImplementedError
+2025-10-17 03:22:41,903 INFO [INIT] URL=https://www.amazon.com/bestsellers proxy=None ua=Mozilla/5.0 (iPhone; CPU iPhone OS 17_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1
+2025-10-17 03:22:41,909 ERROR [EXCEPTION] scrape_amazon失败: 
+2025-10-17 03:22:41,980 ERROR Future exception was never retrieved
+future: <Future finished exception=NotImplementedError()>
+Traceback (most recent call last):
+  File "D:\智能体\D京盛传媒智能体_企业版\scrapers\amazon_scraper.py", line 59, in scrape_amazon
+    html = _load_page(url, proxy, ua, headless)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\智能体\D京盛传媒智能体_企业版\scrapers\amazon_scraper.py", line 110, in _load_page
+    with sync_playwright() as p:
+  File "C:\Users\29270\AppData\Local\Programs\Python\Python311\Lib\site-packages\playwright\sync_api\_context_manager.py", line 77, in __enter__
+    dispatcher_fiber.switch()
+  File "C:\Users\29270\AppData\Local\Programs\Python\Python311\Lib\site-packages\playwright\sync_api\_context_manager.py", line 56, in greenlet_main
+    self._loop.run_until_complete(self._connection.run_as_sync())
+  File "C:\Users\29270\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\29270\AppData\Local\Programs\Python\Python311\Lib\site-packages\playwright\_impl\_connection.py", line 301, in run_as_sync
+    await self.run()
+  File "C:\Users\29270\AppData\Local\Programs\Python\Python311\Lib\site-packages\playwright\_impl\_connection.py", line 310, in run
+    await self._transport.connect()
+  File "C:\Users\29270\AppData\Local\Programs\Python\Python311\Lib\site-packages\playwright\_impl\_transport.py", line 133, in connect
+    raise exc
+  File "C:\Users\29270\AppData\Local\Programs\Python\Python311\Lib\site-packages\playwright\_impl\_transport.py", line 120, in connect
+    self._proc = await asyncio.create_subprocess_exec(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\29270\AppData\Local\Programs\Python\Python311\Lib\asyncio\subprocess.py", line 223, in create_subprocess_exec
+    transport, protocol = await loop.subprocess_exec(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\29270\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 1708, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\29270\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 503, in _make_subprocess_transport
+    raise NotImplementedError
+NotImplementedError
+2025-10-17 03:48:51,188 INFO [INIT] URL=https://www.amazon.com/bestsellers proxy=None ua=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.3 Safari/605.1.15 scraped=0
+2025-10-17 03:48:51,192 ERROR [EXCEPTION] scrape_amazon失败: type=<class 'NotImplementedError'> repr=NotImplementedError()
+2025-10-17 03:48:51,198 ERROR Traceback (most recent call last):
+  File "D:\智能体\D京盛传媒智能体_企业版\scrapers\amazon_scraper.py", line 88, in scrape_amazon
+    html = _load_page(url, proxy, ua, headless)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\智能体\D京盛传媒智能体_企业版\scrapers\amazon_scraper.py", line 137, in _load_page
+    with sync_playwright() as p:
+  File "D:\智能体\D京盛传媒智能体_企业版\.venv\Lib\site-packages\playwright\sync_api\_context_manager.py", line 77, in __enter__
+    dispatcher_fiber.switch()
+  File "D:\智能体\D京盛传媒智能体_企业版\.venv\Lib\site-packages\playwright\sync_api\_context_manager.py", line 56, in greenlet_main
+    self._loop.run_until_complete(self._connection.run_as_sync())
+  File "C:\Users\29270\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "D:\智能体\D京盛传媒智能体_企业版\.venv\Lib\site-packages\playwright\_impl\_connection.py", line 301, in run_as_sync
+    await self.run()
+  File "D:\智能体\D京盛传媒智能体_企业版\.venv\Lib\site-packages\playwright\_impl\_connection.py", line 310, in run
+    await self._transport.connect()
+  File "D:\智能体\D京盛传媒智能体_企业版\.venv\Lib\site-packages\playwright\_impl\_transport.py", line 133, in connect
+    raise exc
+  File "D:\智能体\D京盛传媒智能体_企业版\.venv\Lib\site-packages\playwright\_impl\_transport.py", line 120, in connect
+    self._proc = await asyncio.create_subprocess_exec(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\29270\AppData\Local\Programs\Python\Python311\Lib\asyncio\subprocess.py", line 223, in create_subprocess_exec
+    transport, protocol = await loop.subprocess_exec(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\29270\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 1708, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\29270\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 503, in _make_subprocess_transport
+    raise NotImplementedError
+NotImplementedError
+
+2025-10-17 03:48:51,273 ERROR Future exception was never retrieved
+future: <Future finished exception=NotImplementedError()>
+Traceback (most recent call last):
+  File "D:\智能体\D京盛传媒智能体_企业版\scrapers\amazon_scraper.py", line 88, in scrape_amazon
+    html = _load_page(url, proxy, ua, headless)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\智能体\D京盛传媒智能体_企业版\scrapers\amazon_scraper.py", line 137, in _load_page
+    with sync_playwright() as p:
+  File "D:\智能体\D京盛传媒智能体_企业版\.venv\Lib\site-packages\playwright\sync_api\_context_manager.py", line 77, in __enter__
+    dispatcher_fiber.switch()
+  File "D:\智能体\D京盛传媒智能体_企业版\.venv\Lib\site-packages\playwright\sync_api\_context_manager.py", line 56, in greenlet_main
+    self._loop.run_until_complete(self._connection.run_as_sync())
+  File "C:\Users\29270\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "D:\智能体\D京盛传媒智能体_企业版\.venv\Lib\site-packages\playwright\_impl\_connection.py", line 301, in run_as_sync
+    await self.run()
+  File "D:\智能体\D京盛传媒智能体_企业版\.venv\Lib\site-packages\playwright\_impl\_connection.py", line 310, in run
+    await self._transport.connect()
+  File "D:\智能体\D京盛传媒智能体_企业版\.venv\Lib\site-packages\playwright\_impl\_transport.py", line 133, in connect
+    raise exc
+  File "D:\智能体\D京盛传媒智能体_企业版\.venv\Lib\site-packages\playwright\_impl\_transport.py", line 120, in connect
+    self._proc = await asyncio.create_subprocess_exec(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\29270\AppData\Local\Programs\Python\Python311\Lib\asyncio\subprocess.py", line 223, in create_subprocess_exec
+    transport, protocol = await loop.subprocess_exec(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\29270\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 1708, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\29270\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 503, in _make_subprocess_transport
+    raise NotImplementedError
+NotImplementedError
+2025-10-17 03:57:31,536 INFO [INIT] URL=https://www.amazon.com/bestsellers proxy=None ua=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 scraped=0
+2025-10-17 03:57:31,540 ERROR [EXCEPTION] scrape_amazon失败: type=<class 'NotImplementedError'> repr=NotImplementedError()
+2025-10-17 03:57:31,544 ERROR Traceback (most recent call last):
+  File "D:\智能体\D京盛传媒智能体_企业版\scrapers\amazon_scraper.py", line 88, in scrape_amazon
+    html = _load_page(url, proxy, ua, headless)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\智能体\D京盛传媒智能体_企业版\scrapers\amazon_scraper.py", line 137, in _load_page
+    with sync_playwright() as p:
+  File "D:\智能体\D京盛传媒智能体_企业版\.venv\Lib\site-packages\playwright\sync_api\_context_manager.py", line 77, in __enter__
+    dispatcher_fiber.switch()
+  File "D:\智能体\D京盛传媒智能体_企业版\.venv\Lib\site-packages\playwright\sync_api\_context_manager.py", line 56, in greenlet_main
+    self._loop.run_until_complete(self._connection.run_as_sync())
+  File "C:\Users\29270\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "D:\智能体\D京盛传媒智能体_企业版\.venv\Lib\site-packages\playwright\_impl\_connection.py", line 301, in run_as_sync
+    await self.run()
+  File "D:\智能体\D京盛传媒智能体_企业版\.venv\Lib\site-packages\playwright\_impl\_connection.py", line 310, in run
+    await self._transport.connect()
+  File "D:\智能体\D京盛传媒智能体_企业版\.venv\Lib\site-packages\playwright\_impl\_transport.py", line 133, in connect
+    raise exc
+  File "D:\智能体\D京盛传媒智能体_企业版\.venv\Lib\site-packages\playwright\_impl\_transport.py", line 120, in connect
+    self._proc = await asyncio.create_subprocess_exec(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\29270\AppData\Local\Programs\Python\Python311\Lib\asyncio\subprocess.py", line 223, in create_subprocess_exec
+    transport, protocol = await loop.subprocess_exec(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\29270\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 1708, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\29270\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 503, in _make_subprocess_transport
+    raise NotImplementedError
+NotImplementedError
+
+2025-10-17 03:57:31,597 ERROR Future exception was never retrieved
+future: <Future finished exception=NotImplementedError()>
+Traceback (most recent call last):
+  File "D:\智能体\D京盛传媒智能体_企业版\scrapers\amazon_scraper.py", line 88, in scrape_amazon
+    html = _load_page(url, proxy, ua, headless)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\智能体\D京盛传媒智能体_企业版\scrapers\amazon_scraper.py", line 137, in _load_page
+    with sync_playwright() as p:
+  File "D:\智能体\D京盛传媒智能体_企业版\.venv\Lib\site-packages\playwright\sync_api\_context_manager.py", line 77, in __enter__
+    dispatcher_fiber.switch()
+  File "D:\智能体\D京盛传媒智能体_企业版\.venv\Lib\site-packages\playwright\sync_api\_context_manager.py", line 56, in greenlet_main
+    self._loop.run_until_complete(self._connection.run_as_sync())
+  File "C:\Users\29270\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "D:\智能体\D京盛传媒智能体_企业版\.venv\Lib\site-packages\playwright\_impl\_connection.py", line 301, in run_as_sync
+    await self.run()
+  File "D:\智能体\D京盛传媒智能体_企业版\.venv\Lib\site-packages\playwright\_impl\_connection.py", line 310, in run
+    await self._transport.connect()
+  File "D:\智能体\D京盛传媒智能体_企业版\.venv\Lib\site-packages\playwright\_impl\_transport.py", line 133, in connect
+    raise exc
+  File "D:\智能体\D京盛传媒智能体_企业版\.venv\Lib\site-packages\playwright\_impl\_transport.py", line 120, in connect
+    self._proc = await asyncio.create_subprocess_exec(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\29270\AppData\Local\Programs\Python\Python311\Lib\asyncio\subprocess.py", line 223, in create_subprocess_exec
+    transport, protocol = await loop.subprocess_exec(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\29270\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 1708, in subprocess_exec
+    transport = await self._make_subprocess_transport(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\29270\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 503, in _make_subprocess_transport
+    raise NotImplementedError
+NotImplementedError

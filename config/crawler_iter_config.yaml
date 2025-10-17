@@ -1,0 +1,86 @@
+enabled: true
+min_interval_minutes: 30
+
+test_urls:
+  - "https://www.amazon.com/bestsellers"
+  - "https://www.amazon.com/s?k=usb+hub"
+  - "https://www.amazon.com/s?k=wireless+mouse"
+
+patch_output_dir: "auto_patches"
+sandbox_dir: "sandbox"
+production_file: "scrapers/amazon_scraper.py"
+
+strategies_enabled:
+  - extend_selectors
+  - adjust_wait_time
+  - add_second_pass
+  - switch_user_agent
+  - increase_scroll_cycles
+  - fallback_data_asins
+
+max_patch_lines_added: 220
+max_patch_files: 1
+
+score_threshold: 0.12          # 分数提升阈值
+require_error_drop: true
+
+weights:
+  items: 0.55
+  zero: -0.30
+  time: -0.10
+  errors: -0.40
+  captcha: -0.15
+
+selector_bundles:
+  base:
+    list_selectors:
+      - "div.s-result-item"
+      - "div.zg-grid-general-faceout"
+      - "div.p13n-sc-uncoverable-faceout"
+      - "div[data-asin]"
+    title_selectors:
+      - "span.a-size-medium"
+      - "h2 a span"
+      - "div.p13n-sc-truncated"
+      - "img"
+    price_selectors:
+      - "span.a-price-whole"
+      - "span.p13n-sc-price"
+      - "span.a-offscreen"
+  extended:
+    list_selectors:
+      - "div.s-result-item"
+      - "div[data-asin][data-component-type='s-search-result']"
+      - "div.zg-grid-general-faceout"
+      - "div.a-section.a-spacing-none.p13n-asin"
+      - "div.p13n-sc-uncoverable-faceout"
+    title_selectors:
+      - "span.a-size-medium"
+      - "span.a-size-base-plus.a-color-base"
+      - "h2 a span"
+      - "img"
+      - "div.p13n-sc-truncated"
+    price_selectors:
+      - "span.a-price-whole"
+      - "span.a-offscreen"
+      - "span.p13n-sc-price"
+
+ua_set:
+  desktop:
+    - "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+    - "Mozilla/5.0 (Macintosh; Intel Mac OS X 13_2_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.3 Safari/605.1.15"
+  hybrid:
+    - "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+    - "Mozilla/5.0 (iPhone; CPU iPhone OS 17_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1"
+    - "Mozilla/5.0 (Linux; Android 13; SM-S9060) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0 Mobile Safari/537.36"
+
+scroll_cycles_base: 3
+scroll_cycles_extended: 6
+
+wait_time_base:
+  min: 1.0
+  max: 1.6
+
+wait_time_extended:
+  min: 1.2
+  max: 2.2
